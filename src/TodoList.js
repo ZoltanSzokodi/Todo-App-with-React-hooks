@@ -6,6 +6,7 @@ import Todo from './Todo';
 
 
 function TodoList(props) {
+
   return (
     <Paper>
       <List>
@@ -17,7 +18,8 @@ function TodoList(props) {
               key={todo.id}
               completed={todo.completed}
               removeTodo={props.removeTodo}
-              toggleTodo={props.toggleTodo} />
+              toggleTodo={props.toggleTodo}
+              editTodo={props.editTodo} />
             <Divider />
           </React.Fragment>
         ))}
