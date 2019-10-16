@@ -6,26 +6,30 @@ import Todo from './Todo';
 
 
 function TodoList(props) {
+  if (props.todos.length) {
+    return (
+      <Paper>
+        <List>
+          {props.todos.map((todo, i) => (
+            <React.Fragment>
+              <Todo
+                id={todo.id}
+                task={todo.task}
+                key={todo.id}
+                completed={todo.completed}
+                removeTodo={props.removeTodo}
+                toggleTodo={props.toggleTodo}
+                editTodo={props.editTodo} />
+              {i < props.todos.length - 1 && <Divider />}
+            </React.Fragment>
+          ))}
+        </List>
+      </Paper>
+    );
+  } else {
+    return null;
+  }
 
-  return (
-    <Paper>
-      <List>
-        {props.todos.map((todo, i) => (
-          <React.Fragment>
-            <Todo
-              id={todo.id}
-              task={todo.task}
-              key={todo.id}
-              completed={todo.completed}
-              removeTodo={props.removeTodo}
-              toggleTodo={props.toggleTodo}
-              editTodo={props.editTodo} />
-            {i < props.todos.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
-      </List>
-    </Paper>
-  );
 }
 
 export default TodoList;
