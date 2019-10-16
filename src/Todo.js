@@ -10,11 +10,16 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 function Todo(props) {
   return (
     <ListItem>
-      <CheckBox tabIndex={-1} checked={props.completed} />
+      <CheckBox
+        tabIndex={-1}
+        checked={props.completed}
+        onClick={() => props.toggleTodo(props.id)} />
       <ListItemText style={{ textDecoration: props.completed ? "line-through" : "none" }}>
         {props.task}
       </ListItemText>
-      <IconButton aria-label="delete" >
+      <IconButton
+        aria-label="delete"
+        onClick={() => props.removeTodo(props.id)} >
         <DeleteIcon />
       </IconButton>
       <IconButton aria-label="edit" >
