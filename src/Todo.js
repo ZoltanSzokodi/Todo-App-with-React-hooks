@@ -13,7 +13,7 @@ function Todo(props) {
   const [isEditing, toggle] = useToggleState(false);
 
   return (
-    <ListItem>
+    <ListItem style={{ height: "64px" }}>
       {isEditing ?
         <EditTodoForm
           editTodo={props.editTodo}
