@@ -13,10 +13,8 @@ function TodoList(props) {
           {props.todos.map((todo, i) => (
             <React.Fragment>
               <Todo
-                id={todo.id}
-                task={todo.task}
+                {...todo}
                 key={todo.id}
-                completed={todo.completed}
                 removeTodo={props.removeTodo}
                 toggleTodo={props.toggleTodo}
                 editTodo={props.editTodo} />
